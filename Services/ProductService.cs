@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 //Imports
 using e_commerce_api.Models;
-using System.Collections.Generic;
-using System.Linq;
+
 
 //MongoDB
 using MongoDB.Driver;

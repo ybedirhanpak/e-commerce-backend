@@ -37,5 +37,17 @@ namespace e_commerce_api.Models
         [BsonElement("oldPrice")]
         public string OldPrice { get; set; }
 
+        [BsonElement("description")]
+        public string Description { get; set; }
+
+        [BsonElement("quantity")]
+        public int Quantity { get; set; }
+
+        [BsonElement("stars")]
+        public int Stars { get; set; }
+
+        [BsonElement("sizeOptions")]
+        public string[] SizeOptions { get; set; }
+
     }
 }
