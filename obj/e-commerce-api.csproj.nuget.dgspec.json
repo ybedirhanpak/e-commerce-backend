@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ybedi\\Desktop\\e-commerce-project\\e-commerce-api\\e-commerce-api\\e-commerce-api.csproj": {}
+    "/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/e-commerce-api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ybedi\\Desktop\\e-commerce-project\\e-commerce-api\\e-commerce-api\\e-commerce-api.csproj": {
+    "/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/e-commerce-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ybedi\\Desktop\\e-commerce-project\\e-commerce-api\\e-commerce-api\\e-commerce-api.csproj",
+        "projectUniqueName": "/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/e-commerce-api.csproj",
         "projectName": "e-commerce-api",
-        "projectPath": "C:\\Users\\ybedi\\Desktop\\e-commerce-project\\e-commerce-api\\e-commerce-api\\e-commerce-api.csproj",
-        "packagesPath": "C:\\Users\\ybedi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ybedi\\Desktop\\e-commerce-project\\e-commerce-api\\e-commerce-api\\obj\\",
+        "projectPath": "/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/e-commerce-api.csproj",
+        "packagesPath": "/Users/furkan/.nuget/packages/",
+        "outputPath": "/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ybedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/furkan/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -28,7 +28,7 @@ namespace e_commerce_api.Controllers
         {
             return _productService.Get();
         }
-        
+
 
         /**
          * Gets the product with its id if exists.
@@ -53,11 +53,11 @@ namespace e_commerce_api.Controllers
         {
             _productService.Create(product);
 
-            return CreatedAtRoute("GetProduct", new {id = product.Id.ToString()}, product);
+            return CreatedAtRoute("GetProduct", new { id = product.Id.ToString() }, product);
         }
 
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Product product)
+        public IActionResult Update(string id, [FromBody] Product product)
         {
 
             if (_productService.Get(id) == null)

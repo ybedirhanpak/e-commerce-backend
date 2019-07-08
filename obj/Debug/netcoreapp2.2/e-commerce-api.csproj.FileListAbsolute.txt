@@ -1,25 +1,39 @@
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.deps.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.runtimeconfig.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.runtimeconfig.dev.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.dll
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.csprojAssemblyReference.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.csproj.CoreCompileInputs.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorAssemblyInfo.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorAssemblyInfo.cs
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.AssemblyInfoInputs.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.AssemblyInfo.cs
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorTargetAssemblyInfo.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.deps.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.runtimeconfig.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.runtimeconfig.dev.json
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.dll
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\bin\Debug\netcoreapp2.2\e-commerce-api.pdb
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.csprojAssemblyReference.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.csproj.CoreCompileInputs.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorAssemblyInfo.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorAssemblyInfo.cs
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.AssemblyInfoInputs.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.AssemblyInfo.cs
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.RazorTargetAssemblyInfo.cache
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.dll
-C:\Users\ybedi\Desktop\e-commerce-project\e-commerce-api\e-commerce-api\obj\Debug\netcoreapp2.2\e-commerce-api.pdb
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.deps.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.dev.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.dll
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.csprojAssemblyReference.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.csproj.CoreCompileInputs.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cs
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfoInputs.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfo.cs
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorTargetAssemblyInfo.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.deps.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.dev.json
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.dll
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/bin/Debug/netcoreapp2.2/e-commerce-api.pdb
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.csprojAssemblyReference.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.csproj.CoreCompileInputs.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cs
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfoInputs.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfo.cs
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.RazorTargetAssemblyInfo.cache
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.dll
+C:/Users/ybedi/Desktop/e-commerce-project/e-commerce-api/e-commerce-api/obj/Debug/netcoreapp2.2/e-commerce-api.pdb
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/bin/Debug/netcoreapp2.2/e-commerce-api.deps.json
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.json
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/bin/Debug/netcoreapp2.2/e-commerce-api.runtimeconfig.dev.json
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/bin/Debug/netcoreapp2.2/e-commerce-api.dll
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/bin/Debug/netcoreapp2.2/e-commerce-api.pdb
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.csprojAssemblyReference.cache
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.csproj.CoreCompileInputs.cache
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cache
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.RazorAssemblyInfo.cs
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfoInputs.cache
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.AssemblyInfo.cs
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.RazorTargetAssemblyInfo.cache
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.dll
+/Users/furkan/Desktop/Desktop Folders/dotnet-workspace/E-Commerce-API/obj/Debug/netcoreapp2.2/e-commerce-api.pdb
