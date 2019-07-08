@@ -46,8 +46,8 @@ namespace e_commerce_api.Models
         [BsonElement("stars")]
         public int Stars { get; set; }
 
-        [BsonElement("sizes")]
-        public string[] Sizes { get; set; }
+        [BsonElement("sizeOptions")]
+        public string[] SizeOptions { get; set; }
 
     }
 }
