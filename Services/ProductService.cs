@@ -20,7 +20,7 @@ namespace e_commerce_api.Services
 
         public ProductService(IECommerceDatabaseSettings settings)
         {
-            //Create a mongo client instance to connect mongo
+            //Create a mongo client instance to connect mongo server
             var client = new MongoClient(settings.ConnectionString);
             //Create the database which is "e-commerce"
             var database = client.GetDatabase(settings.DatabaseName);
@@ -44,23 +44,17 @@ namespace e_commerce_api.Services
         /**
          * Loads given product into the collection
          */
-        public Product Create(Product product)
+        public Product Create(Product productIn)
         {
-            _products.InsertOne(product);
-            return product;
+            _products.InsertOne(productIn);
+            return productIn;
         }
 
         /**
          * Updates the product that has the given id with new product
          */
-        public void Update(string id, Product product) =>
-            _products.ReplaceOne<Product>(p => p.Id == id, product);
-
-        /**
-         * Removes given product from the collection
-         */
-        public void Remove(Product product) =>
-            _products.DeleteOne(p => p.Id == product.Id);
+        public void Update(string id, Product productIn) =>
+            _products.ReplaceOne<Product>(p => p.Id == id, productIn);
 
         /**
          * Removes the product with its id

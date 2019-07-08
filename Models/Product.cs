@@ -25,8 +25,8 @@ namespace e_commerce_api.Models
         [BsonElement("discount")]
         public string Discount { get; set; }
 
-        [BsonElement("new")]
-        public bool New { get; set; }
+        [BsonElement("isNew")]
+        public bool IsNew { get; set; }
 
         [BsonElement("category")]
         public string Category { get; set; }
