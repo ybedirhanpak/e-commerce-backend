@@ -66,10 +66,9 @@ namespace e_commerce_api
             });
 
             //Configure DI for application services
-            //TODO ADD USER SERVICE
+            services.AddScoped<IUserService, UserService>();
 
             //Add Singletons
-
             services.AddSingleton<IECommerceDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<ECommerceDatabaseSettings>>().Value);
 
@@ -77,7 +76,6 @@ namespace e_commerce_api
 
             services.AddSingleton<CategoryService>();
 
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
