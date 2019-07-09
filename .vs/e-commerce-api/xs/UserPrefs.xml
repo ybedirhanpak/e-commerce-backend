@@ -1,31 +1,26 @@
 ﻿<Properties StartupConfiguration="{AFBBBFEF-853C-40EB-B2FA-88D58482F0C8}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument=".gitignore">
     <Files>
       <File FileName="Services/ProductService.cs" Line="10" Column="6" />
-      <File FileName="Controllers/ProductsController.cs" Line="60" Column="57" />
-      <File FileName="Program.cs" Line="11" Column="25" />
-      <File FileName="Properties/launchSettings.json" Line="19" Column="7" />
-      <File FileName="appsettings.json" Line="4" Column="14" />
-      <File FileName="Models/Product.cs" Line="50" Column="42" />
-      <File FileName="Models/ECommerceDatabaseSettings.cs" Line="1" Column="1" />
+      <File FileName="Controllers/ProductsController.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="appsettings.json" Line="1" Column="1" />
+      <File FileName="Models/Product.cs" Line="1" Column="1" />
+      <File FileName="Models/ECommerceDatabaseSettings.cs" Line="5" Column="1" />
+      <File FileName="Startup.cs" Line="27" Column="1" />
+      <File FileName="appsettings.Development.json" Line="10" Column="1" />
+      <File FileName=".gitignore" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="e-commerce-api" expanded="True">
             <Node name="e-commerce-api" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name=".gitignore" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
