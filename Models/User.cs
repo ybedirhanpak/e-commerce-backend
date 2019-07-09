@@ -11,7 +11,8 @@ namespace e_commerce_api.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
+
         [BsonElement("firstName")]
         public string FirstName { get; set; }
 
@@ -26,6 +27,9 @@ namespace e_commerce_api.Models
 
         [BsonElement("role")]
         public string Role { get; set; }
+
+        [BsonElement("token")]
+        public string Token { get; set; }
 
     }
 }
