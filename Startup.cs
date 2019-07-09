@@ -36,6 +36,8 @@ namespace e_commerce_api
 
             services.AddSingleton<ProductService>();
 
+            services.AddSingleton<CategoryService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
