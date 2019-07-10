@@ -100,7 +100,6 @@ namespace e_commerce_api.Controllers
             return Ok(userDtos);
         }
 
-        [AllowAnonymous]
         [HttpGet("get/{id}")]
         public IActionResult GetById(string id)
         {

@@ -114,9 +114,25 @@ namespace e_commerce_api.Services
             }
 
             //update user properties
-            user.FirstName = userIn.FirstName;
-            user.LastName = userIn.LastName;
-            user.Username = userIn.Username;
+            if (userIn.FirstName != null)
+            {
+                user.FirstName = userIn.FirstName;
+            }
+
+            if (userIn.LastName != null)
+            {
+                user.LastName = userIn.LastName;
+            }
+
+            if (userIn.Username != null)
+            {
+                user.Username = userIn.Username;
+            }
+
+            if (userIn.Role != null)
+            {
+                user.Role = userIn.Role;
+            }
 
             //update password if it was provided
             if(!string.IsNullOrWhiteSpace(password))
