@@ -22,14 +22,17 @@ namespace e_commerce_api.Models
         [BsonElement("username")]
         public string Username { get; set; }
 
-        [BsonElement("password")]
-        public string Password { get; set; }
+        [BsonElement("passwordHash")]
+        public byte[] PasswordHash { get; set; }
+
+        [BsonElement("passwordSalt")]
+        public byte[] PasswordSalt { get; set; }
 
         [BsonElement("role")]
         public string Role { get; set; }
 
-        [BsonElement("token")]
-        public string Token { get; set; }
+        //[BsonElement("token")]
+        //public string Token { get; set; }
 
     }
 }

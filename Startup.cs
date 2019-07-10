@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using e_commerce_api.Models;
+using AutoMapper;
 
 using e_commerce_api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -36,6 +37,7 @@ namespace e_commerce_api
 
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAutoMapper(typeof(Startup));
 
             //Configure Settings
             services.Configure<ECommerceDatabaseSettings>(
