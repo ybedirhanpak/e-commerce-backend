@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace e_commerce_api.Controllers
 {
     [Authorize(Roles = Role.Admin)]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -34,13 +34,13 @@ namespace e_commerce_api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("authenticate")]
+        [HttpPost]
         public IActionResult Authenticate([FromBody]UserDto userDto)
         {
-            var user = _userService.Authenticate(userDto.Username, userDto.Password);
+            var user = _userService.Authenticate(userDto.Email, userDto.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Email or password is incorrect" });
 
             // authentication successful so generate jwt token
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -63,7 +63,7 @@ namespace e_commerce_api.Controllers
             return Ok(new
             {
                 Id = user.Id,
-                Username = user.Username,
+                Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Token = tokenString
@@ -71,7 +71,7 @@ namespace e_commerce_api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("register")]
+        [HttpPost]
         public IActionResult Register([FromBody]UserDto userDto)
         {
             //Map DTO to model
@@ -91,7 +91,7 @@ namespace e_commerce_api.Controllers
         }
 
     
-        [HttpGet("get")]
+        [HttpGet]
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();
@@ -100,7 +100,7 @@ namespace e_commerce_api.Controllers
             return Ok(userDtos);
         }
 
-        [HttpGet("get/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
             var user = _userService.GetById(id);
@@ -115,7 +115,7 @@ namespace e_commerce_api.Controllers
             return Ok(userDto);
         }
 
-        [HttpPut("update/{id}")]
+        [HttpPut("{id}")]
         public IActionResult Update(string id, [FromBody]UserDto userDto)
         {
             // Map DTO to model and set id
@@ -135,7 +135,7 @@ namespace e_commerce_api.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             _userService.Delete(id);

@@ -19,8 +19,8 @@ namespace e_commerce_api.Models
         [BsonElement("lastName")]
         public string LastName { get; set; }
 
-        [BsonElement("username")]
-        public string Username { get; set; }
+        [BsonElement("email")]
+        public string Email { get; set; }
 
         [BsonElement("passwordHash")]
         public byte[] PasswordHash { get; set; }

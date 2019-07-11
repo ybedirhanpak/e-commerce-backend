@@ -19,7 +19,7 @@ namespace e_commerce_api.Services
 {
     public interface IUserService
     {
-        User Authenticate(string username, string password);
+        User Authenticate(string email, string password);
         IEnumerable<User> GetAll();
         User GetById(string id);
         User Create(User user, string password);
@@ -44,14 +44,14 @@ namespace e_commerce_api.Services
 
         }
 
-        public User Authenticate(string username, string password)
+        public User Authenticate(string email, string password)
         {
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 return null;
             }
 
-            var user = _users.Find<User>(x => x.Username == username ).FirstOrDefault();
+            var user = _users.Find<User>(x => x.Email == email ).FirstOrDefault();
 
             // return null if user not found
             if (user == null)
@@ -82,9 +82,9 @@ namespace e_commerce_api.Services
                 throw new AppException("User not found");
             }
 
-            if (_users.Find<User>(u => u.Username == user.Username).Any<User>())
+            if (_users.Find<User>(u => u.Email == user.Email).Any<User>())
             {
-                throw new AppException("Username " + user.Username + " already exists.");
+                throw new AppException("Email " + user.Email + " already exists.");
                 
             }
 
@@ -105,11 +105,11 @@ namespace e_commerce_api.Services
 
             if (user == null) throw new AppException("User not found");
 
-            if(userIn.Username != user.Username)
+            if(userIn.Email != user.Email)
             {
-                if(_users.Find<User>(u => u.Username == userIn.Username).Any())
+                if(_users.Find<User>(u => u.Email == userIn.Email).Any())
                 {
-                    throw new AppException("Username " + userIn.Username + " is already exists.");
+                    throw new AppException("Email " + userIn.Email + " is already exists.");
                 }
             }
 
@@ -124,9 +124,9 @@ namespace e_commerce_api.Services
                 user.LastName = userIn.LastName;
             }
 
-            if (userIn.Username != null)
+            if (userIn.Email != null)
             {
-                user.Username = userIn.Username;
+                user.Email = userIn.Email;
             }
 
             if (userIn.Role != null)
