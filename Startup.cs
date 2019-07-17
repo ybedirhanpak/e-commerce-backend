@@ -77,7 +77,7 @@ namespace e_commerce_api
             services.AddSingleton<ProductService>();
 
             services.AddSingleton<CategoryService>();
-
+            services.AddScoped<IMailService, MailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

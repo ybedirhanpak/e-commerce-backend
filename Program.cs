@@ -7,6 +7,10 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace e_commerce_api
 {
@@ -14,6 +18,8 @@ namespace e_commerce_api
     {
         public static void Main(string[] args)
         {
+
+
             CreateWebHostBuilder(args).Build().Run();
         }
 
