@@ -49,5 +49,8 @@ namespace e_commerce_api.Models
         [BsonElement("sizeOptions")]
         public string[] SizeOptions { get; set; }
 
+        [BsonElement("reviews")]
+        public Review[] Reviews { get; set; }
+
     }
 }

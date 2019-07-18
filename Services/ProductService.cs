@@ -59,5 +59,17 @@ namespace e_commerce_api.Services
          */
         public void Remove(string id) =>
             _products.DeleteOne(p => p.Id == id);
+
+
+        /*
+         * Adds comment to the product
+         */
+
+        public void AddComment (string id,Review comment)
+        {
+            var product = _products.Find<Product>(p => p.Id == id).FirstOrDefault();
+
+        }
+
     }
 }
