@@ -13,7 +13,7 @@ namespace e_commerce_api.Services
 {
     public class CategoryService
     {
-        //Create a collection object to refer products
+        //Create a collection object to refer categories
         private readonly IMongoCollection<Category> _categories;
 
         public CategoryService(IECommerceDatabaseSettings settings)
@@ -28,21 +28,43 @@ namespace e_commerce_api.Services
         }
 
         /**
-         *  Gets all products
+         *  Gets all categories
          */
-        public List<Category> Get() =>
-            _categories.Find(p => true).ToList();
+        public List<Category> GetAllCategories() =>
+            _categories.Find(c => true).ToList();
 
         /**
-         * Gets the product with given id
+         * Gets the category with given id
          */
-        public Category Get(string id) =>
-            _categories.Find<Category>(p => p.Id == id).FirstOrDefault();
+        public Category GetById(string id) =>
+            _categories.Find<Category>(c => c.Id == id).FirstOrDefault();
+
+        /**
+         * Gets all categories that have given parent id
+         */
+        public List<Category> GetByQuery(string parentId, string section)
+        {
+            if (!string.IsNullOrWhiteSpace(parentId) && !string.IsNullOrWhiteSpace(section))
+            {
+                return _categories.Find(c => c.ParentId == parentId && c.Section == section).ToList();
+            } else if (!string.IsNullOrWhiteSpace(parentId) && string.IsNullOrWhiteSpace(section))
+            {
+                return _categories.Find(c => c.ParentId == parentId).ToList();
+            } else if (string.IsNullOrWhiteSpace(parentId) && !string.IsNullOrWhiteSpace(section))
+            {
+                return _categories.Find(c => c.Section == section).ToList();
+            }
+            else
+            {
+                return _categories.Find(c => true).ToList();
+            }
+        }
+            
 
         /**
          * Loads given product into the collection
          */
-        public Category Create(Category categoryIn)
+        public Category InsertOneCategory(Category categoryIn)
         {
             _categories.InsertOne(categoryIn);
             return categoryIn;
@@ -51,13 +73,13 @@ namespace e_commerce_api.Services
         /**
          * Updates the product that has the given id with new product
          */
-        public void Update(string id, Category categoriesIn) =>
+        public void UpdateCategoryWithId(string id, Category categoriesIn) =>
             _categories.ReplaceOne<Category>(p => p.Id == id, categoriesIn);
 
         /**
          * Removes the product with its id
          */
-        public void Remove(string id) =>
+        public void DeleteCategoryWithId(string id) =>
             _categories.DeleteOne(p => p.Id == id);
     }
 }

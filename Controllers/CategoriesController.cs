@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace e_commerce_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -23,19 +23,19 @@ namespace e_commerce_api.Controllers
          * Gets all products in collection.
          */
         [HttpGet]
-        public ActionResult<List<Category>> Get()
+        public ActionResult<List<Category>> GetAll()
         {
-            return _categoryService.Get();
+            return _categoryService.GetAllCategories();
         }
 
 
         /**
          * Gets the product with its id if exists.
          */
-        [HttpGet("{id:length(24)}", Name = "GetCategory")]
+        [HttpGet("{id:length(24)}",Name = "GetCategory")]
         public ActionResult<Category> Get(string id)
         {
-            var category = _categoryService.Get(id);
+            var category = _categoryService.GetById(id);
             if (category == null)
             {
                 return NotFound();
@@ -45,12 +45,21 @@ namespace e_commerce_api.Controllers
         }
 
         /**
+         * Gets the product with its id if exists.
+         */
+        [HttpGet]
+        public ActionResult<List<Category>> Get([FromQuery] string parentId, [FromQuery] string section)
+        {
+            return _categoryService.GetByQuery(parentId, section);
+        }
+
+        /**
          * Posts given product into the collection.
          */
         [HttpPost]
         public ActionResult<Category> Create(Category category)
         {
-            _categoryService.Create(category);
+            _categoryService.InsertOneCategory(category);
 
             return CreatedAtRoute("GetCategory", new { id = category.Id.ToString() }, category);
         }
@@ -59,12 +68,12 @@ namespace e_commerce_api.Controllers
         public IActionResult Update(string id, [FromBody] Category category)
         {
 
-            if (_categoryService.Get(id) == null)
+            if (_categoryService.GetById(id) == null)
             {
                 return NotFound();
             }
 
-            _categoryService.Update(id, category);
+            _categoryService.UpdateCategoryWithId(id, category);
 
             return NoContent();
         }
@@ -72,12 +81,12 @@ namespace e_commerce_api.Controllers
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {
-            if (_categoryService.Get(id) == null)
+            if (_categoryService.GetById(id) == null)
             {
                 return NotFound();
             }
 
-            _categoryService.Remove(id);
+            _categoryService.DeleteCategoryWithId(id);
 
             return NoContent();
         }
