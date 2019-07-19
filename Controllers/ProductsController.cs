@@ -9,7 +9,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace e_commerce_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
