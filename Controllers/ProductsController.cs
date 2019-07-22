@@ -57,7 +57,7 @@ namespace e_commerce_api.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, [FromBody] Product product)
+        public ActionResult<Product> Update(string id, [FromBody] Product product)
         {
 
             if (_productService.Get(id) == null)
@@ -67,7 +67,7 @@ namespace e_commerce_api.Controllers
 
             _productService.Update(id,product);
 
-            return NoContent();
+            return product;
         }
 
         [HttpDelete("{id:length(24)}")]
