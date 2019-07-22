@@ -24,9 +24,9 @@ namespace e_commerce_api.Controllers
          * Gets all products in collection.
          */
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public ActionResult<List<Product>> GetAll()
         {
-            return _productService.Get();
+            return _productService.GetAll();
         }
 
 
@@ -34,15 +34,24 @@ namespace e_commerce_api.Controllers
          * Gets the product with its id if exists.
          */
         [HttpGet("{id:length(24)}", Name = "GetProduct")]
-        public ActionResult<Product> Get(string id)
+        public ActionResult<Product> GetById(string id)
         {
-            var product = _productService.Get(id);
+            var product = _productService.GetById(id);
             if (product == null)
             {
                 return NotFound();
             }
 
             return product;
+        }
+
+        /**
+         * Gets the product with its id if exists.
+         */
+        [HttpPost]
+        public ActionResult<List<Product>> GetByCategory([FromBody]string[] categoryIds)
+        {
+            return _productService.GetByCategory(categoryIds);
         }
 
         /**
@@ -60,7 +69,7 @@ namespace e_commerce_api.Controllers
         public ActionResult<Product> Update(string id, [FromBody] Product product)
         {
 
-            if (_productService.Get(id) == null)
+            if (_productService.GetById(id) == null)
             {
                 return NotFound();
             }
@@ -73,7 +82,7 @@ namespace e_commerce_api.Controllers
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {
-            if (_productService.Get(id) == null)
+            if (_productService.GetById(id) == null)
             {
                 return NotFound();
             }

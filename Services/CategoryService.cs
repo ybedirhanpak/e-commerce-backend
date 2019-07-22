@@ -42,22 +42,9 @@ namespace e_commerce_api.Services
         /**
          * Gets all categories that have given parent id
          */
-        public List<Category> GetByQuery(string parentId, string section)
+        public List<Category> GetByQuery(string parentId)
         {
-            if (!string.IsNullOrWhiteSpace(parentId) && !string.IsNullOrWhiteSpace(section))
-            {
-                return _categories.Find(c => c.ParentId == parentId && c.Section == section).ToList();
-            } else if (!string.IsNullOrWhiteSpace(parentId) && string.IsNullOrWhiteSpace(section))
-            {
-                return _categories.Find(c => c.ParentId == parentId).ToList();
-            } else if (string.IsNullOrWhiteSpace(parentId) && !string.IsNullOrWhiteSpace(section))
-            {
-                return _categories.Find(c => c.Section == section).ToList();
-            }
-            else
-            {
-                return _categories.Find(c => true).ToList();
-            }
+            return !string.IsNullOrWhiteSpace(parentId) ? _categories.Find(c => c.ParentId == parentId).ToList() : _categories.Find(c => true).ToList();
         }
             
 
@@ -79,7 +66,22 @@ namespace e_commerce_api.Services
         /**
          * Removes the product with its id
          */
-        public void DeleteCategoryWithId(string id) =>
+        public void DeleteCategoryWithId(string id)
+        {
             _categories.DeleteOne(p => p.Id == id);
+
+            var childrenList = GetByQuery(id);
+
+
+            foreach (var element in childrenList)
+            {
+                _categories.DeleteMany(c => c.ParentId == element.Id);
+                _categories.DeleteOne(c => c.Id == element.Id);
+            }
+
+            _categories.DeleteOne(c => c.Id == id);
+
+        }
+        
     }
 }

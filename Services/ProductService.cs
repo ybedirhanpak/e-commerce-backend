@@ -30,14 +30,22 @@ namespace e_commerce_api.Services
         /**
          *  Gets all products
          */
-        public List<Product> Get() =>
+        public List<Product> GetAll() =>
             _products.Find(p => true).ToList();
 
         /**
          * Gets the product with given id
          */
-        public Product Get(string id) =>
+        public Product GetById(string id) =>
             _products.Find<Product>(p => p.Id == id).FirstOrDefault();
+
+
+        /**
+         * Gets the product with category id
+         */
+        public List<Product> GetByCategory(string[] categoryIds) =>
+            _products.Find(p => categoryIds.Contains(p.Category)).ToList();
+
 
         /**
          * Loads given product into the collection
@@ -60,16 +68,6 @@ namespace e_commerce_api.Services
         public void Remove(string id) =>
             _products.DeleteOne(p => p.Id == id);
 
-
-        /*
-         * Adds comment to the product
-         */
-
-        public void AddComment (string id,Review comment)
-        {
-            var product = _products.Find<Product>(p => p.Id == id).FirstOrDefault();
-
-        }
 
     }
 }
