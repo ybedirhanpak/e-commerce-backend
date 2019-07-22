@@ -43,8 +43,8 @@ namespace e_commerce_api.Services
         /**
          * Gets the product with category id
          */
-        public List<Product> GetByCategoryId(string id) =>
-            _products.Find(p => p.Category == id).ToList();
+        public List<Product> GetByCategory(string[] categoryIds) =>
+            _products.Find(p => categoryIds.Contains(p.Category)).ToList();
 
 
         /**

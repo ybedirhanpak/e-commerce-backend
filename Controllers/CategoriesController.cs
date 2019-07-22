@@ -48,9 +48,9 @@ namespace e_commerce_api.Controllers
          * Gets the product with its id if exists.
          */
         [HttpGet]
-        public ActionResult<List<Category>> Get([FromQuery] string parentId, [FromQuery] string section)
+        public ActionResult<List<Category>> GetByParentId([FromQuery] string parentId)
         {
-            return _categoryService.GetByQuery(parentId, section);
+            return _categoryService.GetByQuery(parentId);
         }
 
         /**

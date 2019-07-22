@@ -48,10 +48,10 @@ namespace e_commerce_api.Controllers
         /**
          * Gets the product with its id if exists.
          */
-        [HttpGet("{id:length(24)}")]
-        public ActionResult<List<Product>> GetByCategoryId(string id)
+        [HttpPost]
+        public ActionResult<List<Product>> GetByCategory([FromBody]string[] categoryIds)
         {
-            return _productService.GetByCategoryId(id);
+            return _productService.GetByCategory(categoryIds);
         }
 
         /**
