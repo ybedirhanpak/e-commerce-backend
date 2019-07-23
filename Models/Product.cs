@@ -52,5 +52,12 @@ namespace e_commerce_api.Models
         [BsonElement("reviews")]
         public Review[] Reviews { get; set; }
 
+        [BsonElement("cityOptions")]
+        public City[] CityOptions { get; set; }
+
+        [BsonElement("brand")]
+        public Brand Brand { get; set; }
+
     }
+
 }

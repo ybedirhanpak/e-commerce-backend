@@ -12,6 +12,8 @@ namespace e_commerce_api.Models
         public string ProductsCollectionName { get; set; }
         public string CategoriesCollectionName { get; set; }
         public string UsersCollectionName { get; set; }
+        public string CitiesCollectionName { get; set; }
+        public string BrandsCollectionName { get; set; }
     }
 
     public interface IECommerceDatabaseSettings
@@ -21,6 +23,8 @@ namespace e_commerce_api.Models
         string ProductsCollectionName { get; set; }
         string CategoriesCollectionName { get; set; }
         string UsersCollectionName { get; set; }
+        string CitiesCollectionName { get; set; }
+        string BrandsCollectionName { get; set; }
 
     }
 }

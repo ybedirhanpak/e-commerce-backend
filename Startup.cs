@@ -75,6 +75,8 @@ namespace e_commerce_api
                 sp.GetRequiredService<IOptions<ECommerceDatabaseSettings>>().Value);
 
             services.AddSingleton<ProductService>();
+            services.AddSingleton<CityService>();
+            services.AddSingleton<BrandService>();
 
             services.AddSingleton<CategoryService>();
             services.AddScoped<IMailService, MailService>();
