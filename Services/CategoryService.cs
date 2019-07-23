@@ -60,8 +60,12 @@ namespace e_commerce_api.Services
         /**
          * Updates the product that has the given id with new product
          */
-        public void UpdateCategoryWithId(string id, Category categoriesIn) =>
+        public void UpdateCategoryWithId(string id, Category categoriesIn)
+        {
+            categoriesIn.Id = id;
             _categories.ReplaceOne<Category>(p => p.Id == id, categoriesIn);
+        }
+            
 
         /**
          * Removes the product with its id

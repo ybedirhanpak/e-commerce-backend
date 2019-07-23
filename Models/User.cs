@@ -31,8 +31,7 @@ namespace e_commerce_api.Models
         [BsonElement("role")]
         public string Role { get; set; }
 
-        //[BsonElement("token")]
-        //public string Token { get; set; }
-
+        [BsonElement("addresses")]
+        public Address[] Addresses { get; set; }
     }
 }

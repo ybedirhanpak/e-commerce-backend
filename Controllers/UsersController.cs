@@ -66,6 +66,7 @@ namespace e_commerce_api.Controllers
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Addresses = user.Addresses,
                 Token = tokenString
             });
         }
