@@ -134,6 +134,11 @@ namespace e_commerce_api.Services
                 user.Role = userIn.Role;
             }
 
+            if (userIn.Addresses !=null)
+            {
+                user.Addresses = userIn.Addresses;
+            }
+
             //update password if it was provided
             if(!string.IsNullOrWhiteSpace(password))
             {
