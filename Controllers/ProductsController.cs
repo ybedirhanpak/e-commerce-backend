@@ -58,7 +58,7 @@ namespace e_commerce_api.Controllers
          * Posts given product into the collection.
          */
         [HttpPost]
-        public ActionResult<Product> Create(Product product)
+        public ActionResult<Product> Create([FromBody]Product product)
         {
             _productService.Create(product);
 
