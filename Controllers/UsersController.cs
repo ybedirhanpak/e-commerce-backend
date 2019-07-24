@@ -116,6 +116,7 @@ namespace e_commerce_api.Controllers
             return Ok(userDto);
         }
 
+        [AllowAnonymous]
         [HttpPut("{id}")]
         public IActionResult Update(string id, [FromBody]UserDto userDto)
         {
