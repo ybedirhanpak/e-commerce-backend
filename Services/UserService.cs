@@ -23,8 +23,9 @@ namespace e_commerce_api.Services
         IEnumerable<User> GetAll();
         User GetById(string id);
         User Create(User user, string password);
-        void Update(User user, string password = null);
+        User Update(User user, string password = null);
         void Delete(string id);
+        string GenerateToken(User user, AppSettings _appSettings);
     }
 
     public class UserService : IUserService
@@ -99,7 +100,7 @@ namespace e_commerce_api.Services
 
         }
 
-        public void Update(User userIn, string password=null)
+        public User Update(User userIn, string password=null)
         {
             var user = _users.Find<User>(u => u.Id == userIn.Id).FirstOrDefault();
 
@@ -139,8 +140,13 @@ namespace e_commerce_api.Services
                 user.Addresses = userIn.Addresses;
             }
 
+            if (userIn.Orders != null)
+            {
+                user.Orders = userIn.Orders;
+            }
+
             //update password if it was provided
-            if(!string.IsNullOrWhiteSpace(password))
+            if (!string.IsNullOrWhiteSpace(password))
             {
                 byte[] passwordHash, passwordSalt;
                 CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -151,6 +157,7 @@ namespace e_commerce_api.Services
             }
 
             _users.ReplaceOne<User>(u => u.Id == user.Id, user);
+            return user;
 
         }
 
@@ -162,6 +169,29 @@ namespace e_commerce_api.Services
             {
                 _users.DeleteOne(u => u.Id == id);
             }
+        }
+
+        public string GenerateToken(User user, AppSettings _appSettings)
+        {
+            // authentication successful so generate jwt token
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role)
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+
+            return tokenString;
+
         }
 
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt )
