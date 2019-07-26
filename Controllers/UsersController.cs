@@ -42,23 +42,6 @@ namespace e_commerce_api.Controllers
             if (user == null)
                 return BadRequest(new { message = "Email or password is incorrect" });
 
-            // authentication successful so generate jwt token
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, user.Role)
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-
             //TODO CREATE BASIC USER DTO
             return Ok(new
             {
@@ -67,8 +50,10 @@ namespace e_commerce_api.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Addresses = user.Addresses,
-                Token = tokenString
-            });
+                Orders=user.Orders,
+                Role=user.Role,
+                Token = _userService.GenerateToken(user, _appSettings)
+            }); 
         }
 
         [AllowAnonymous]
@@ -116,6 +101,7 @@ namespace e_commerce_api.Controllers
             return Ok(userDto);
         }
 
+        [AllowAnonymous]
         [HttpPut("{id}")]
         public IActionResult Update(string id, [FromBody]UserDto userDto)
         {
@@ -126,8 +112,20 @@ namespace e_commerce_api.Controllers
             try
             {
                 //Save
-                _userService.Update(user, userDto.Password);
-                return Ok();
+                var userUpdated = _userService.Update(user, userDto.Password);
+
+                //TODO CREATE BASIC USER DTO
+                return Ok(new
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Addresses = user.Addresses,
+                    Orders=user.Orders,
+                    Role=user.Role,
+                    Token = _userService.GenerateToken(userUpdated, _appSettings)
+                }) ;
             }
             catch (AppException ex)
             {

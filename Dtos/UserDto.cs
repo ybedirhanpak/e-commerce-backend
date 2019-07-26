@@ -13,5 +13,6 @@ namespace e_commerce_api.Dtos
         public string Role { get; set; }
 
         public Address[] Addresses { get; set; }
+        public Orders[] Orders { get; set; }
     }
 }
