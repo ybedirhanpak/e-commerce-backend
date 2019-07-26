@@ -77,6 +77,7 @@ namespace e_commerce_api
             services.AddSingleton<ProductService>();
             services.AddSingleton<CityService>();
             services.AddSingleton<BrandService>();
+            services.AddSingleton<OrderService>();
 
             services.AddSingleton<CategoryService>();
             services.AddScoped<IMailService, MailService>();
