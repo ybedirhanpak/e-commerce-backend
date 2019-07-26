@@ -51,6 +51,7 @@ namespace e_commerce_api.Controllers
                 LastName = user.LastName,
                 Addresses = user.Addresses,
                 Orders=user.Orders,
+                Role=user.Role,
                 Token = _userService.GenerateToken(user, _appSettings)
             }); 
         }
@@ -122,6 +123,7 @@ namespace e_commerce_api.Controllers
                     LastName = user.LastName,
                     Addresses = user.Addresses,
                     Orders=user.Orders,
+                    Role=user.Role,
                     Token = _userService.GenerateToken(userUpdated, _appSettings)
                 }) ;
             }
