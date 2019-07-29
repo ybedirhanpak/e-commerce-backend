@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using e_commerce_api.Models;
 using e_commerce_api.Services;
@@ -54,13 +55,25 @@ namespace e_commerce_api.Controllers
             return _productService.GetByCategory(categoryIds);
         }
 
+
+        [HttpPost]
+        public ActionResult<List <Product>> GetByFilter([FromBody]Filter filter)
+        {
+
+
+            return _productService.GetByFilter(filter);
+        }
+
         /**
          * Posts given product into the collection.
          */
         [HttpPost]
         public ActionResult<Product> Create([FromBody]Product product)
         {
+            
+
             _productService.Create(product);
+            
 
             return CreatedAtRoute("GetProduct", new { id = product.Id.ToString() }, product);
         }
