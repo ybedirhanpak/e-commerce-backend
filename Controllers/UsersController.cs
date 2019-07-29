@@ -117,13 +117,13 @@ namespace e_commerce_api.Controllers
                 //TODO CREATE BASIC USER DTO
                 return Ok(new
                 {
-                    Id = user.Id,
-                    Email = user.Email,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Addresses = user.Addresses,
-                    Orders=user.Orders,
-                    Role=user.Role,
+                    Id = userUpdated.Id,
+                    Email = userUpdated.Email,
+                    FirstName = userUpdated.FirstName,
+                    LastName = userUpdated.LastName,
+                    Addresses = userUpdated.Addresses,
+                    Orders= userUpdated.Orders,
+                    Role= userUpdated.Role,
                     Token = _userService.GenerateToken(userUpdated, _appSettings)
                 }) ;
             }
