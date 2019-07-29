@@ -32,10 +32,10 @@ namespace e_commerce_api.Models
         public string Category { get; set; }
 
         [BsonElement("price")]
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         [BsonElement("oldPrice")]
-        public string OldPrice { get; set; }
+        public double OldPrice { get; set; }
 
         [BsonElement("description")]
         public string Description { get; set; }

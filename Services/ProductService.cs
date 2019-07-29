@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 //Imports
@@ -46,6 +47,53 @@ namespace e_commerce_api.Services
         public List<Product> GetByCategory(string[] categoryIds) =>
             _products.Find(p => categoryIds.Contains(p.Category)).ToList();
 
+        /*
+         * Gets products according to given criterias
+         */
+
+
+
+
+        public List<Product> GetByFilter(Filter filter)
+        { 
+
+            var _filter = Builders<Product>.Filter.Where(p => true);
+
+
+            if (filter?.Cities?.Count() > 0)
+            {
+                _filter &= Builders<Product>.Filter.Where(x => filter.Cities.Intersect(x.CityOptions).Any());
+
+            }
+
+            if (filter?.Brands?.Count() > 0)
+            {
+                _filter &= Builders<Product>.Filter.Where(p => filter.Brands.Contains(p.Brand));
+            }
+
+            if (filter?.Subcategories?.Count() > 0)
+            {
+                _filter &= Builders<Product>.Filter.Where(p => filter.Subcategories.Contains(p.Category)); 
+                
+            }
+
+            if (filter?.Price != null)
+            {
+                
+                double.TryParse(filter.Price.Min, out double min);
+                double.TryParse(filter.Price.Max, out double max);
+
+
+                _filter &= Builders<Product>.Filter.Where(p =>
+                (
+                    min < p.Price && max > p.Price
+
+                ));
+
+            }
+
+            return _products.Find(_filter).ToList();
+        }
 
         /**
          * Loads given product into the collection
@@ -68,6 +116,14 @@ namespace e_commerce_api.Services
         public void Remove(string id) =>
             _products.DeleteOne(p => p.Id == id);
 
+        public double ConvertDouble(string price)
+        {
+            double.TryParse(price, out double result);
+            return result;
+        }
+
 
     }
 }
+
+

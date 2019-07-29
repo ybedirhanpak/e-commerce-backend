@@ -106,7 +106,7 @@ namespace e_commerce_api.Services
 
             if (user == null) throw new AppException("User not found");
 
-            if(userIn.Email != user.Email)
+            if(userIn.Email != null && userIn.Email != user.Email)
             {
                 if(_users.Find<User>(u => u.Email == userIn.Email).Any())
                 {
@@ -125,11 +125,6 @@ namespace e_commerce_api.Services
                 user.LastName = userIn.LastName;
             }
 
-            if (userIn.Email != null)
-            {
-                user.Email = userIn.Email;
-            }
-
             if (userIn.Role != null)
             {
                 user.Role = userIn.Role;
@@ -142,7 +137,13 @@ namespace e_commerce_api.Services
 
             if (userIn.Orders != null)
             {
-                user.Orders = userIn.Orders;
+                //TODO CHANGE HERE
+                var MergedOrders = new string[user.Orders.Length + userIn.Orders.Length];
+
+                user.Orders.CopyTo(MergedOrders, 0);
+                userIn.Orders.CopyTo(MergedOrders, user.Orders.Length);
+
+                user.Orders = MergedOrders;
             }
 
             //update password if it was provided
