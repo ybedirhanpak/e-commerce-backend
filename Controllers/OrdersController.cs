@@ -38,6 +38,14 @@ namespace e_commerce_api.Controllers
         }
 
         [HttpPost]
+        public ActionResult<List<Order>> GetByMultipleIds([FromBody]OrderQuery query)
+        {
+            var orders = _ordersService.GetByMultipleIds(query);
+
+            return orders;
+        }
+
+        [HttpPost]
         public ActionResult<Order> Create(Order order)
         {
             _ordersService.Create(order);

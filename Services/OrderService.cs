@@ -28,6 +28,16 @@ namespace e_commerce_api.Services
         public Order GetById(string id) =>
          _orders.Find<Order>(p => p.Id == id).FirstOrDefault();
 
+
+        public List<Order> GetByMultipleIds(OrderQuery query)
+        {
+            var orderIds = query.orderIds;
+
+            return _orders.Find(x => orderIds.Contains(x.Id)).ToList();
+        }
+
+
+
         public Order Create(Order orderIn)
         {
             _orders.InsertOne(orderIn);

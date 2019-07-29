@@ -26,6 +26,9 @@ namespace e_commerce_api.Models
         [BsonElement("paymentType")]
         public string PaymentType { get; set; }
 
+        [BsonElement("orderNotes")]
+        public string OrderNotes { get; set; }
+
         [BsonElement("orderedProducts")]
         public orderedProducts[] OrderedProducts { get; set; }
 
