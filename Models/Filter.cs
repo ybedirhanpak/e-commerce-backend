@@ -9,6 +9,8 @@ namespace e_commerce_api.Models
 
         public string[] Subcategories { get; set; }
 
+        public string[] AllSubcategories { get; set; }
+
         public string SearchText { get; set; }
 
         public string MainCategoryId { get; set; }
