@@ -58,6 +58,9 @@ namespace e_commerce_api.Models
         [BsonElement("brand")]
         public string Brand { get; set; }
 
+        [BsonElement("tags")]
+        public string[] Tags { get; set; }
+
     }
 
 }
