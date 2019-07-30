@@ -32,6 +32,9 @@ namespace e_commerce_api.Models
         [BsonElement("orderedProducts")]
         public orderedProducts[] OrderedProducts { get; set; }
 
+        [BsonElement("orderTotal")]
+        public string OrderTotal { get; set; }
+
         [BsonElement("userId")]
         public string UserId { get; set; }
 
