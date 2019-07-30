@@ -92,6 +92,19 @@ namespace e_commerce_api.Services
 
                 ));
             }
+            if (filterIn?.SortBy == "priceHighToLow")
+            {
+                return _products.Find(filter).Limit(Convert.ToInt32(filterIn.Show)).Sort(Builders<Product>.Sort.Descending("Price")).ToList();
+            }
+            else if (filterIn?.SortBy == "priceLowToHigh")
+            {
+                return _products.Find(filter).Limit(Convert.ToInt32(filterIn.Show)).Sort(Builders<Product>.Sort.Ascending("Price")).ToList();
+            }
+            else if (filterIn?.SortBy == "new")
+            {
+
+                return _products.Find(filter).Limit(Convert.ToInt32(filterIn.Show)).Sort(Builders<Product>.Sort.Descending("isNew")).ToList();
+            }
 
             return _products.Find(filter).ToList();
         }

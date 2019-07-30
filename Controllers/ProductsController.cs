@@ -87,6 +87,7 @@ namespace e_commerce_api.Controllers
                 return NotFound();
             }
 
+            
             _productService.Update(id,product);
 
             return product;
