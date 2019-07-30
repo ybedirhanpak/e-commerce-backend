@@ -100,6 +100,27 @@ namespace e_commerce_api.Controllers
 
             return Ok(userDto);
         }
+        [AllowAnonymous]
+        [HttpPut]
+        public IActionResult UpdatePassword([FromBody]UserPassword credentials)
+        {
+            var user = _userService.Authenticate(credentials.Email, credentials.OldPassword);
+
+            if (user == null)
+                return BadRequest(new { message = "Old password is incorrect" });
+
+            try
+            {
+                _userService.Update(user, credentials.NewPassword);
+
+                return Ok();
+            }
+            catch(AppException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+
+        }
 
         [AllowAnonymous]
         [HttpPut("{id}")]
@@ -140,5 +161,7 @@ namespace e_commerce_api.Controllers
             _userService.Delete(id);
             return Ok();
         }
+
+      
     }
 }
