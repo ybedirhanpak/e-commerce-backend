@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
 using e_commerce_api.Models;
 using MongoDB.Driver;
@@ -15,11 +16,6 @@ public static class ExpressionExtensions
 
         return Expression.Lambda<Func<T, bool>>(sum, leftExp.Parameters);
 
-    }
-
-    public static FilterDefinition<Product> And<T>(this FilterDefinition<Product> leftFilter, FilterDefinition<Product> rightFilter)
-    {
-        return leftFilter & rightFilter;
     }
 
 }
