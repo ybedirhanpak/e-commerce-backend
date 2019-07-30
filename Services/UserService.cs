@@ -115,27 +115,27 @@ namespace e_commerce_api.Services
             }
 
             //update user properties
-            if (userIn.FirstName != null)
+            if (!string.IsNullOrWhiteSpace(userIn?.FirstName))
             {
                 user.FirstName = userIn.FirstName;
             }
 
-            if (userIn.LastName != null)
+            if (!string.IsNullOrWhiteSpace(userIn?.LastName))
             {
                 user.LastName = userIn.LastName;
             }
 
-            if (userIn.Role != null)
+            if (!string.IsNullOrWhiteSpace(userIn?.Role))
             {
                 user.Role = userIn.Role;
             }
 
-            if (userIn.Addresses !=null)
+            if (userIn?.Addresses?.Count() > 0)
             {
                 user.Addresses = userIn.Addresses;
             }
 
-            if (userIn.Orders != null)
+            if (userIn?.Orders?.Count() > 0)
             {
                 //TODO CHANGE HERE
                 var MergedOrders = new string[user.Orders.Length + userIn.Orders.Length];

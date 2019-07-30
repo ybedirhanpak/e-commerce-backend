@@ -134,6 +134,7 @@ namespace e_commerce_api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
