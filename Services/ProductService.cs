@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 //Imports
 using e_commerce_api.Models;
+using MongoDB.Bson;
 
 //MongoDB
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace e_commerce_api.Services
 {
@@ -47,52 +49,51 @@ namespace e_commerce_api.Services
         public List<Product> GetByCategory(string[] categoryIds) =>
             _products.Find(p => categoryIds.Contains(p.Category)).ToList();
 
-        /*
-         * Gets products according to given criterias
+        /**
+         * Gets products according to given criteria
          */
+        public List<Product> GetByFilter(Filter filterIn)
+        {
+            var filter = Builders<Product>.Filter.Where(p => true);
 
-
-
-
-        public List<Product> GetByFilter(Filter filter)
-        { 
-
-            var _filter = Builders<Product>.Filter.Where(p => true);
-
-
-            if (filter?.Cities?.Count() > 0)
+            if (filterIn?.Cities?.Count() > 0)
             {
-                _filter &= Builders<Product>.Filter.Where(x => filter.Cities.Intersect(x.CityOptions).Any());
+                var cityFilter = Builders<Product>.Filter.Where(p => false);
 
+                foreach (var city in filterIn.Cities)
+                {
+                    cityFilter |= Builders<Product>.Filter.Where(p => p.CityOptions.Contains(city));
+                }
+
+                filter &= cityFilter;
             }
 
-            if (filter?.Brands?.Count() > 0)
+            if (filterIn?.Brands?.Count() > 0)
             {
-                _filter &= Builders<Product>.Filter.Where(p => filter.Brands.Contains(p.Brand));
+                filter &= Builders<Product>.Filter.Where(p => filterIn.Brands.Contains(p.Brand));
             }
 
-            if (filter?.Subcategories?.Count() > 0)
+            if (filterIn?.Subcategories?.Count() > 0)
             {
-                _filter &= Builders<Product>.Filter.Where(p => filter.Subcategories.Contains(p.Category)); 
-                
+                filter &= Builders<Product>.Filter.Where(p => filterIn.Subcategories.Contains(p.Category));
+            } else if (filterIn?.AllSubcategories?.Count() > 0)
+            {
+                filter &= Builders<Product>.Filter.Where(p => filterIn.AllSubcategories.Contains(p.Category));
             }
 
-            if (filter?.Price != null)
+            if (filterIn?.Price?.Max != "" && filterIn?.Price?.Min != "")
             {
-                
-                double.TryParse(filter.Price.Min, out double min);
-                double.TryParse(filter.Price.Max, out double max);
+                double.TryParse(filterIn.Price.Min, out var min);
+                double.TryParse(filterIn.Price.Max, out var max);
 
-
-                _filter &= Builders<Product>.Filter.Where(p =>
+                filter &= Builders<Product>.Filter.Where(p =>
                 (
                     min < p.Price && max > p.Price
 
                 ));
-
             }
 
-            return _products.Find(_filter).ToList();
+            return _products.Find(filter).ToList();
         }
 
         /**
