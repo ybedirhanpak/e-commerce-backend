@@ -56,6 +56,20 @@ namespace e_commerce_api.Services
         {
             var filter = Builders<Product>.Filter.Where(p => true);
 
+            if (!string.IsNullOrWhiteSpace(filterIn?.SearchText))
+            {
+                var searchFilter = Builders<Product>.Filter.Where(p => false);
+
+                string[] keywords = filterIn.SearchText.ToLower().Split(" ");
+
+                foreach (var key in keywords)
+                {
+                    searchFilter |= Builders<Product>.Filter.Where(p => p.Tags.Contains(key));
+                }
+
+                filter &= searchFilter;
+            }
+
             if (filterIn?.Cities?.Count() > 0)
             {
                 var cityFilter = Builders<Product>.Filter.Where(p => false);
@@ -92,6 +106,7 @@ namespace e_commerce_api.Services
 
                 ));
             }
+
             if (filterIn?.SortBy == "priceHighToLow")
             {
                 return _products.Find(filter).Limit(Convert.ToInt32(filterIn.Show)).Sort(Builders<Product>.Sort.Descending("Price")).ToList();
