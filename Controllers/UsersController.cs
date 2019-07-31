@@ -86,6 +86,7 @@ namespace e_commerce_api.Controllers
             return Ok(userDtos);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
@@ -100,6 +101,16 @@ namespace e_commerce_api.Controllers
 
             return Ok(userDto);
         }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult<List<User>> GetByMultipleIds([FromBody]UserQuery query)
+        {
+            var users = _userService.GetByMultipleIds(query);
+
+            return users;
+        }
+
         [AllowAnonymous]
         [HttpPut]
         public IActionResult UpdatePassword([FromBody]UserPassword credentials)
