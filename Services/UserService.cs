@@ -23,6 +23,7 @@ namespace e_commerce_api.Services
         IEnumerable<User> GetAll();
         User GetById(string id);
         List<User> GetByMultipleIds(UserQuery query);
+        User GetByEmail(string email);
         User Create(User user, string password);
         User Update(User user, string password = null);
         void Delete(string id);
@@ -81,6 +82,11 @@ namespace e_commerce_api.Services
         public User GetById(string id)
         {
             return _users.Find<User>(u => u.Id == id).FirstOrDefault();
+        }
+
+        public User GetByEmail (string email)
+        {
+            return _users.Find<User>(u => u.Email == email).FirstOrDefault();
         }
 
         public User Create(User user, string password)
