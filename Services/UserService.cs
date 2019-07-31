@@ -22,6 +22,7 @@ namespace e_commerce_api.Services
         User Authenticate(string email, string password);
         IEnumerable<User> GetAll();
         User GetById(string id);
+        List<User> GetByMultipleIds(UserQuery query);
         User GetByEmail(string email);
         User Create(User user, string password);
         User Update(User user, string password = null);
@@ -64,6 +65,13 @@ namespace e_commerce_api.Services
             }
 
             return user;
+        }
+
+        public List<User> GetByMultipleIds(UserQuery query)
+        {
+            var userIds = query.userIds;
+
+            return _users.Find(x => userIds.Contains(x.Id)).ToList();
         }
 
         public IEnumerable<User> GetAll()
